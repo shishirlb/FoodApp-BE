@@ -102,7 +102,6 @@ public class UserServiceImpl implements UserService {
 					new UsernamePasswordAuthenticationToken(requestMap.get("email"), requestMap.get("password")));
 
 			if (auth.isAuthenticated()) {
-
 				if (customerUserDetailsService.getUserDetail().getStatus().equalsIgnoreCase("true")) {
 					return new ResponseEntity<String>(
 							"{\"token\":\""

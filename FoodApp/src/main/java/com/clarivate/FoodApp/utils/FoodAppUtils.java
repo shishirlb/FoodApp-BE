@@ -1,5 +1,6 @@
 package com.clarivate.FoodApp.utils;
 
+import java.io.File;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,6 +26,7 @@ public class FoodAppUtils {
 
 	public static String getUUID() {
 		Date date = new Date();
+		//It returns the number of milliseconds since January 1, 1970, 00:00:00 GMT.
 		long time = date.getTime();
 		return "BILL-" + time;
 	}
@@ -39,5 +41,16 @@ public class FoodAppUtils {
 			return new Gson().fromJson(data, new TypeToken<Map<String, Object>>() {
 			}.getType());
 		return new HashMap<>();
+	}
+	
+	public static Boolean doesFileExist(String path) {
+		try {
+			File file = new File(path);
+			return (file != null && file.exists()) ? Boolean.TRUE : Boolean.FALSE;  
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return false;
+		}
 	}
 }

@@ -128,7 +128,7 @@ public class ProductServiceImpl implements ProductService {
 				Optional<Product> optional = productDao.findById(id);
 				if (!optional.isEmpty()) {
 					productDao.deleteById(id);
-					return FoodAppUtils.getResponseEntity("Product status updated successfully", HttpStatus.OK);
+					return FoodAppUtils.getResponseEntity("Product deleted successfully", HttpStatus.OK);
 				} else {
 					return FoodAppUtils.getResponseEntity("Product ID does not exist", HttpStatus.OK);
 				}
